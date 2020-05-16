@@ -27,7 +27,7 @@ def a_star(graph, start_node, goal_node, heuristic):
     while not queue.empty():
         current = queue.get()
         if current == goal_node:
-            yield get_backward_path(current, came_from, True)
+            return get_backward_path(current, came_from, True)
 
         for neighbor, cost in current.neighbors:
             new_cost = cost_so_far[current] + cost
@@ -40,8 +40,8 @@ def a_star(graph, start_node, goal_node, heuristic):
 
 
 graph, start_node, goal_node = get_graph_1()
-for path in a_star(graph, start_node, goal_node, max_cost):
-    print(f"Start node: {start_node.id}. Goal node: {goal_node.id}")
-    for x in path:
-        print(x.id)
-    print("-" * 30)
+path = a_star(graph, start_node, goal_node, max_cost)
+print(f"Start node: {start_node.id}. Goal node: {goal_node.id}")
+for x in path:
+    print(x.id)
+print("-" * 30)

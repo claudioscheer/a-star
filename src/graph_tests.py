@@ -9,7 +9,7 @@ def get_graph_1():
 
     graph.set_bidirectional_neighbor(node_1, node_2, 1)
     graph.set_bidirectional_neighbor(node_1, node_3, 1)
-    # graph.set_bidirectional_neighbor(node_1, node_2, 1)
+    graph.set_bidirectional_neighbor(node_3, node_2, 3)
 
     graph.add_nodes([node_1, node_2, node_3])
 
