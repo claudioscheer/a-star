@@ -13,4 +13,4 @@ def get_graph_1():
 
     graph.add_nodes([node_1, node_2, node_3])
 
-    return graph, node_1, node_3
+    return graph, node_3, node_2
