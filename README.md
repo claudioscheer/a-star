@@ -14,3 +14,7 @@ h^{max}(s,g)=\max_{g_i \in g}
 \min \{cost(a) + h^{max}(s,pre(a))\text{ | }a \in A \text{ and }g_i \in \text{eff}(a)\} & \text{otherwise}\\
 \end{cases}
 $$
+
+## References
+
+- [https://www.redblobgames.com/pathfinding/a-star/introduction.html](https://www.redblobgames.com/pathfinding/a-star/introduction.html)
