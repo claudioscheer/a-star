@@ -42,6 +42,8 @@ def a_star(graph, start_node, goal_node, heuristic):
 graph, start_node, goal_node = get_graph_1()
 path = a_star(graph, start_node, goal_node, max_cost)
 print(f"Start node: {start_node.id}. Goal node: {goal_node.id}")
+print("-" * 5, end="")
+print("Solution plan", end="")
+print("-" * 5)
 for x in path:
     print(x.id)
-print("-" * 30)
