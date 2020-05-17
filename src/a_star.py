@@ -37,6 +37,7 @@ def a_star(graph, start_node, goal_node, heuristic):
                 priority = new_cost + heuristic(neighbor, goal_node)
                 queue.put(neighbor, priority)
                 came_from[neighbor] = current
+    return None
 
 
 graph, start_node, goal_node = get_graph_1()

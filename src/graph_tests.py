@@ -9,6 +9,7 @@ def get_graph_1():
     node_4 = Node(4)
     node_5 = Node(5)
     node_6 = Node(6)
+    node_7 = Node(7)
 
     graph.set_bidirectional_neighbor(node_1, node_2, 1)
     graph.set_bidirectional_neighbor(node_1, node_3, 1)
@@ -17,6 +18,6 @@ def get_graph_1():
     graph.set_bidirectional_neighbor(node_3, node_5, 1)
     graph.set_bidirectional_neighbor(node_5, node_6, 1)
 
-    graph.add_nodes([node_1, node_2, node_3, node_4, node_5, node_6])
+    graph.add_nodes([node_1, node_2, node_3, node_4, node_5, node_6, node_7])
 
-    return graph, node_1, node_6
+    return graph, node_1, node_7
