@@ -35,7 +35,7 @@ def a_star(graph, start_node, goal_node, heuristic):
             # If the cost is not yet tracked or is lower than previous one, use the new cost.
             if neighbor not in cost_so_far or new_cost < cost_so_far[neighbor]:
                 cost_so_far[neighbor] = new_cost
-                priority = new_cost  # + heuristic(neighbor, goal_node)
+                priority = new_cost + heuristic(neighbor, goal_node)
                 came_from[neighbor] = current
                 heapq.heappush(open_nodes, (priority, neighbor))
     return None
