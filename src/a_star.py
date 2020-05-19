@@ -1,4 +1,4 @@
-from queue import PriorityQueue
+import heapq
 from graph_tests import get_graph_1
 from heuristics import max_cost
 
@@ -15,8 +15,9 @@ def get_backward_path(current, came_from, reverse=False):
 
 
 def a_star(graph, start_node, goal_node, heuristic):
-    queue = PriorityQueue()
-    queue.put(start_node, 0)
+    open_nodes = []
+    heapq.heappush(open_nodes, (0, start_node))
+
     # Keep track from where the Node came from.
     came_from = {}
     came_from[start_node] = None
@@ -24,8 +25,8 @@ def a_star(graph, start_node, goal_node, heuristic):
     cost_so_far = {}
     cost_so_far[start_node] = 0
 
-    while not queue.empty():
-        current = queue.get()
+    while open_nodes:
+        _, current = heapq.heappop(open_nodes)
         if current == goal_node:
             return get_backward_path(current, came_from, True)
 
@@ -34,9 +35,9 @@ def a_star(graph, start_node, goal_node, heuristic):
             # If the cost is not yet tracked or is lower than previous one, use the new cost.
             if neighbor not in cost_so_far or new_cost < cost_so_far[neighbor]:
                 cost_so_far[neighbor] = new_cost
-                priority = new_cost + heuristic(neighbor, goal_node)
-                queue.put(neighbor, priority)
+                priority = new_cost  # + heuristic(neighbor, goal_node)
                 came_from[neighbor] = current
+                heapq.heappush(open_nodes, (priority, neighbor))
     return None
 
 
